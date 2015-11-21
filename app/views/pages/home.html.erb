@@ -1,0 +1,116 @@
+<div class="row">
+	<div class="col-md-5">
+		<div class="row">
+			<% if @news_left %>
+				<div class="col-md-12">
+					<div class="text-header">
+						<% if params[:championship] %>
+							Campeonato <%= params[:championship] %>
+						<% else %>
+							Campeonato Nacional
+						<% end %>
+					</div>
+				</div>
+				<%
+				# For every news
+				@news_left.each do |news|  %>
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-4">
+								<div><%= image_tag news.image.url(:medium), class: "img-responsive image-center" %></div>
+							</div>
+							<div class="col-md-8">
+								<div class="news-title"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+								<div class="news-subtitle"><%= local_time(news.updated_at) %></div>
+								<div class="content-text"><%= simple_format(news.summary) %></div>
+							</div>
+						</div>
+						<div><hr></div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="col-md-5">
+		<div class="row">
+			<% if @news_right %>
+				<div class="col-md-12">
+					<div class="text-header">Otras Noticias</div>
+				</div>
+				
+				<%
+				# For every news
+				@news_right.each do |news|  %>
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-4">
+								<div><%= image_tag news.image.url(:medium), class: "img-responsive image-center" %></div>
+							</div>
+							<div class="col-md-8">
+								<div class="news-title"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+								<div class="news-subtitle"><%= local_time(news.updated_at) %></div>
+								<div class="content-text"><%= simple_format(news.summary) %></div>
+							</div>
+						</div>
+						<div><hr></div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="col-md-2">
+		<div class="row">
+			<% if @news_day_like_today %>
+
+				<% @news_day_like_today.each do |news|  %>
+					<div class="col-md-12 section-header">Un día como hoy</div>
+					<div class="col-md-12">
+						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div><%= image_tag news.image.url(:medium), class: "img-responsive image-center" %></div>
+						<div class="content-text"><%= simple_format(news.summary) %></div>
+						<div><hr></div>
+					</div>
+				<% end %>
+			<% end %>
+			
+
+			<% if @news_know_better_to %>
+				<% @news_know_better_to.each do |news|  %>
+					<div class="col-md-12 section-header">Conozca mejor a</div>
+					<div class="col-md-12">
+						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div><%= image_tag news.image.url(:medium), class: "img-responsive image-center" %></div>
+						<div class="content-text"><%= simple_format(news.summary) %></div>
+						<div><hr></div>
+					</div>
+				<% end %>
+			<% end %>
+
+			<% if @news_things_we_learned %>
+				<% @news_things_we_learned.each do |news| %>
+					<div class="col-md-12 section-header-blue">3 Cosas que confirmamos</div>
+					<div class="col-md-12">
+						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div><%= image_tag news.image.url(:medium), class: "img-responsive image-center" %></div>
+						<div class="content-text"><%= simple_format(news.summary) %></div>
+						<div><hr></div>
+					</div>
+				<% end %>
+			<% end %>
+
+			<% if @news_player_week %>
+				<% @news_player_week.each do |news| %>
+					<div class="col-md-12 section-header-green">Jugador de la semana</div>
+					<div class="col-md-12">
+						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div><%= image_tag news.image.url(:medium), class: "img-responsive image-center" %></div>
+						<div class="content-text"><%= simple_format(news.summary) %></div>
+						<div><hr></div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

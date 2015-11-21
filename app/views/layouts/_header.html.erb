@@ -1,0 +1,18 @@
+<div class="row header">
+  <div class="col-md-3"><%= link_to "<img src='/assets/gol365.png'></img>".html_safe, root_path %></div>
+  <div class="col-md-7 header-title"><h4>Pasión por el futbol, los 365 días del año</h4></div>
+
+  <% if current_user %>
+
+  	<% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
+  		<div class="col-md-1 header-button verticalLine"><%= link_to "<i class='fa fa-newspaper-o'></i><br>Crear Noticia".html_safe, new_news_path %></div>
+  	<% else %>
+  		<div class="col-md-1"></div>
+  	<% end %>
+  	<div class="col-md-1 header-button verticalLine"><%= link_to "<i class='fa fa-times-circle'></i><br>Salir".html_safe, destroy_user_session_path, method: :delete %></div>
+  <% else %>
+  	<div class="col-md-1 header-button verticalLine"><%= link_to "<i class='fa fa-user-plus'></i><br>Registrarse".html_safe, new_user_registration_path %></div>
+  	<div class="col-md-1 header-button verticalLine"><%= link_to "<i class='fa fa-sign-in'></i><br>Ingresar".html_safe, new_user_session_path %></div>
+  <% end %>
+</div>
+

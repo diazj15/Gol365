@@ -1,0 +1,18 @@
+<%= simple_form_for(@news) do |f| %>
+  <%= f.error_notification %> 
+  <%= f.input :title, required: true, label: false, placeholder: "Titulo", input_html: {class: "form-control", rows: 1} %><br>
+  <%= f.label :category, 'Categoria' %>
+  <%= f.input :category, required: true, label: false, placeholder: "Categoria", input_html: {class: "form-control"}, :collection => ['Left','Right', 'A day like today','Know better to','3 things we learned','Player of the week'] %><br>
+  <%= f.label :championship, 'Campeonato' %>
+  <%= f.input :championship, required: true, label: false, placeholder: "Campeonato", input_html: {class: "form-control"}, :collection => ['Mexico','Costa Rica','Brazil','España','Inglaterra','Champions League'] %><br>
+  <%= f.label :summary, 'Resumen' %>
+  <%= f.cktext_area :summary, :ckeditor => {:language => 'es'} %><br>
+  <%= f.label :body, 'Noticia' %>
+  <%= f.cktext_area :body, :ckeditor => {:language => 'es'} %><br>
+  <%= f.label :image, 'Imagen' %>
+  <%= f.input :image, label: false  %><br>
+  
+  <%= f.button :submit, class: "btn btn-primary btn-lg" %><br><br>
+  
+<% end %>
+  
