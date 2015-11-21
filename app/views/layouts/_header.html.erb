@@ -1,5 +1,6 @@
 <div class="row header">
-  <div class="col-md-3"><%= link_to "<img src='/assets/gol365.png'></img>".html_safe, root_path %></div>
+  
+  <div class="col-md-3"><%= link_to (image_tag "gol365.png", class: "img-responsive"), root_path %></div>
   <div class="col-md-7 header-title"><h4>Pasión por el futbol, los 365 días del año</h4></div>
 
   <% if current_user %>
