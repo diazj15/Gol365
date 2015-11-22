@@ -1,19 +1,46 @@
-<div class="row header">
-  
-  <div class="col-md-3"><%= link_to (image_tag "gol365.png", class: "img-responsive"), root_path %></div>
-  <div class="col-md-7 header-title"><h4>Pasión por el futbol, los 365 días del año</h4></div>
 
-  <% if current_user %>
+<nav class="navbar navbar-default header">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to (image_tag "gol365.png", class: "navbar-brand img-responsive"), root_path %>
+    </div>
 
-  	<% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
-  		<div class="col-md-1 header-button verticalLine"><%= link_to "<i class='fa fa-newspaper-o'></i><br>Crear Noticia".html_safe, new_news_path %></div>
-  	<% else %>
-  		<div class="col-md-1"></div>
-  	<% end %>
-  	<div class="col-md-1 header-button verticalLine"><%= link_to "<i class='fa fa-times-circle'></i><br>Salir".html_safe, destroy_user_session_path, method: :delete %></div>
-  <% else %>
-  	<div class="col-md-1 header-button verticalLine"><%= link_to "<i class='fa fa-user-plus'></i><br>Registrarse".html_safe, new_user_registration_path %></div>
-  	<div class="col-md-1 header-button verticalLine"><%= link_to "<i class='fa fa-sign-in'></i><br>Ingresar".html_safe, new_user_session_path %></div>
-  <% end %>
-</div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Todas las Noticias<span class="sr-only">(current)</span></a></li>
+        <li class="menu-option"><%= link_to 'México', root_path(:championship => 'Mexico') %></li>
+        <li class="menu-option"><%= link_to 'Costa Rica', root_path(:championship => 'Costa Rica') %></li>
+        <li class="menu-option"><%= link_to 'Brazil', root_path(:championship => 'Brazil') %></li>
+        <li class="menu-option"><%= link_to 'España', root_path(:championship => 'España') %></li>
+        <li class="menu-option"><%= link_to 'Inglaterra', root_path(:championship => 'Inglaterra') %></li>
+        <li class="menu-option"><%= link_to 'Champions League', root_path(:championship => 'Champions League') %></li>
+      </ul>
 
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle menu-option" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Otras Acciones <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if current_user %>
+              <% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
+                <li><%= link_to "<i class='fa fa-newspaper-o'></i>&nbsp;Crear Noticia".html_safe, new_news_path %></li>
+              <% end %>
+
+              <li><%= link_to "<i class='fa fa-times-circle'></i>&nbsp;Salir".html_safe, destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "<i class='fa fa-user-plus'></i>&nbsp;Registrarse".html_safe, new_user_registration_path %><</li>
+              <li><%= link_to "<i class='fa fa-sign-in'></i>&nbsp;Ingresar".html_safe, new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
