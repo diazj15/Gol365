@@ -72,6 +72,9 @@
 
 .news-title-small {
   font-weight: bold;
+}
+
+.news-title-small-fs {
   font-size: 12px;
 }
 
@@ -81,10 +84,12 @@
 
 .news-bigger-title {
   font-weight: bold;
-  font-size: 24px;
   text-align: center;
 }
 
+.news-bigger-title-fs {
+  font-size: 24px;
+}
 
 .news-subtitle {
   color: #8A0829;
@@ -192,33 +197,4 @@
 .verticalLine {
     margin-top: 6px;
     border-left:1px solid #AAAAAA; height:50px;
-}
-
-
-@media screen and (max-width: 992px) {
-
-.content-text-fs {
-  font-size: 36px;
-}
-
-.news-title-fs {
-  font-size: 42px;
-}
-
-.news-subtitle-fs {
-  font-size: 20px;
-}
-
-.text-header-fs{
-  font-size: 42px;
-}
-
-.section-header-fs{
-  font-size: 42px;
-}
-
-.menu-option-fs{
-  font-size: 30px !important;
-}
-
 }

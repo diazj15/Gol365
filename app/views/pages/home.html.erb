@@ -48,7 +48,7 @@
 				<% @news_day_like_today.each do |news|  %>
 					<div class="col-md-12 section-header-blue section-header-fs">Un día como hoy</div>
 					<div class="col-md-12">
-						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
 							<% begin %>
 								<% if news.image_link_small.nil? || news.image_link_small.empty? %>
@@ -70,7 +70,7 @@
 				<% @news_know_better_to.each do |news|  %>
 					<div class="col-md-12 section-header-blue section-header-fs">Conozca mejor a</div>
 					<div class="col-md-12">
-						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
 							<% begin %>
 								<% if news.image_link_small.nil? || news.image_link_small.empty? %>
@@ -91,7 +91,7 @@
 				<% @news_things_we_learned.each do |news| %>
 					<div class="col-md-12 section-header-blue section-header-fs">3 Cosas que confirmamos</div>
 					<div class="col-md-12">
-						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
 							<% begin %>
 								<% if news.image_link_small.nil? || news.image_link_small.empty? %>
@@ -112,7 +112,7 @@
 				<% @news_player_week.each do |news| %>
 					<div class="col-md-12 section-header-green section-header-fs">Jugador de la semana</div>
 					<div class="col-md-12">
-						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
 							<% begin %>
 								<% if news.image_link_small.nil? || news.image_link_small.empty? %>
