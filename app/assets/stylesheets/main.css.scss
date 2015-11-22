@@ -123,23 +123,6 @@
   margin-top: 10px;
 }
 
-.leftmenu-header  {
-  background-color: #610B0B;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  margin-top: 1px;
-  height: 25px;
-  position: relative
-}
-
-.leftmenu-header p {
-   margin: 0;
-   position: absolute;
-   top: 50%;
-   transform: translate(0, -50%)
-}
-
 .menu-option{
   color: white !important;;
 }
@@ -184,7 +167,7 @@
 .section-header-blue{
   font-weight: bold;
   font-size: 14px;
-  background-color: #1f3d7a;
+  background-color: #000000;
   padding-left: 5px;
   color: #FFFFFF;
   vertical-align: middle;
@@ -208,7 +191,7 @@
 }
 
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 992px) {
 
 .content-text-fs {
   font-size: 26px;
