@@ -127,6 +127,10 @@
   color: white !important;;
 }
 
+.menu-option-fs{
+  font-size: 14px !important;;
+}
+
 .menu-option a{
  color: white !important;;
 }
@@ -194,11 +198,11 @@
 @media screen and (max-width: 992px) {
 
 .content-text-fs {
-  font-size: 30px;
+  font-size: 36px;
 }
 
 .news-title-fs {
-  font-size: 36px;
+  font-size: 42px;
 }
 
 .news-subtitle-fs {
@@ -206,11 +210,15 @@
 }
 
 .text-header-fs{
-  font-size: 36px;
+  font-size: 42px;
 }
 
 .section-header-fs{
-  font-size: 36px;
+  font-size: 42px;
+}
+
+.menu-option-fs{
+  font-size: 30px !important;
 }
 
 }
