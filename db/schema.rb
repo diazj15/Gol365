@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121124837) do
+ActiveRecord::Schema.define(version: 20151122005207) do
 
   create_table "championships", force: :cascade do |t|
     t.string   "name"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20151121124837) do
     t.string   "category"
     t.string   "country"
     t.string   "championship"
+    t.text     "image_link_small"
+    t.text     "image_link_big"
   end
 
   add_index "news", ["slug"], name: "index_news_on_slug", unique: true

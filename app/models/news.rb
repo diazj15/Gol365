@@ -5,7 +5,7 @@ class News < ActiveRecord::Base
 
 	# indicates that an image can be attached
 	has_attached_file :image,
-		:styles => { :medium => "200x200>" }
+		:styles => { :medium => "300x300>" }
 
 	# used to present the media when it is placed in the body of the news
 	auto_html_for :body do
@@ -22,6 +22,6 @@ class News < ActiveRecord::Base
   	message: "Only images are allowed"
 
   	# Validates that there is an image attached
-  	validates :image, attachment_presence: true
+  	# validates :image, attachment_presence: true
 
 end
