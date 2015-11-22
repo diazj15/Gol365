@@ -51,11 +51,9 @@
 				# For every news
 				@news_next_games.each do |news|  %>
 					<div class="col-md-12">
-						<div class="news-title news-title-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
-						<div class="news-subtitle news-subtitle-fs"><%= local_time(news.updated_at) %></div>
-						<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
+						<%= link_to news.title, news_path(news, :championship => params[:championship]) %>
 					</div>
-					</div>
+					<%= news.image_link_small.html_safe %>
 				<% end %>
 			<% end %>
 		</div>
@@ -75,7 +73,7 @@
 								<% if news.image_link_small.nil? || news.image_link_small.empty? %>
 									<%= image_tag news.image.url(:medium), class: "img-responsive image-center" %>
 								<% elsif %> 
-									<%= news.image_link_small.html_safe %>										
+									<%= news.image_link_small.html_safe %>
 								<% end %>
 							<% rescue Exception %>
 							<% end %>
