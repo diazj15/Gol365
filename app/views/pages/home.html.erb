@@ -43,36 +43,18 @@
 
 	<div class="col-md-4">
 		<div class="row">
-			<% if @news_secondary %>
+			<% if @news_next_games %>
 				<div class="col-md-12">
-					<div class="text-header text-header-fs">
-						Otras Noticias <%= params[:championship] %>
-					</div>
+					<div class="section-header section-header-fs">Próximos Juegos</div>
 				</div>
 				<%
 				# For every news
-				@news_secondary.each do |news|  %>
+				@news_next_games.each do |news|  %>
 					<div class="col-md-12">
-						<div class="row">
-							<div class="col-md-6">
-								<div>
-									<% begin %>
-										<% if news.image_link_small.nil? || news.image_link_small.empty? %>
-											<%= image_tag news.image.url(:medium), class: "img-responsive" %>
-										<% else %> 
-											<%= news.image_link_small.html_safe %>
-										<% end %>
-									<% rescue Exception %>
-									<% end %>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="news-title news-title-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
-								<div class="news-subtitle news-subtitle-fs"><%= local_time(news.updated_at) %></div>
-								<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
-							</div>
-						</div>
-						<div><hr></div>
+						<div class="news-title news-title-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div class="news-subtitle news-subtitle-fs"><%= local_time(news.updated_at) %></div>
+						<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
+					</div>
 					</div>
 				<% end %>
 			<% end %>
