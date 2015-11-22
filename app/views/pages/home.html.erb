@@ -3,7 +3,7 @@
 		<div class="row">
 			<% if @news_main %>
 				<div class="col-md-12">
-					<div class="text-header">
+					<div class="text-header text-header-fs">
 						<% if params[:championship] %>
 							Noticias del Campeonato de <%= params[:championship] %>
 						<% else %>
@@ -29,9 +29,9 @@
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="news-title"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
-								<div class="news-subtitle"><%= local_time(news.updated_at) %></div>
-								<div class="content-text"><%= simple_format(news.summary) %></div>
+								<div class="news-title news-title-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+								<div class="news-subtitle news-subtitle-fs"><%= local_time(news.updated_at) %></div>
+								<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
 							</div>
 						</div>
 						<div><hr></div>
@@ -46,7 +46,7 @@
 			<% if @news_day_like_today %>
 
 				<% @news_day_like_today.each do |news|  %>
-					<div class="col-md-12 section-header-blue">Un día como hoy</div>
+					<div class="col-md-12 section-header-blue section-header-fs">Un día como hoy</div>
 					<div class="col-md-12">
 						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
@@ -59,7 +59,7 @@
 							<% rescue Exception %>
 							<% end %>
 						</div>
-						<div class="content-text"><%= simple_format(news.summary) %></div>
+						<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
 						<div><hr></div>
 					</div>
 				<% end %>
@@ -68,7 +68,7 @@
 
 			<% if @news_know_better_to %>
 				<% @news_know_better_to.each do |news|  %>
-					<div class="col-md-12 section-header-blue">Conozca mejor a</div>
+					<div class="col-md-12 section-header-blue section-header-fs">Conozca mejor a</div>
 					<div class="col-md-12">
 						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
@@ -81,7 +81,7 @@
 							<% rescue Exception %>
 							<% end %>
 						</div>
-						<div class="content-text"><%= simple_format(news.summary) %></div>
+						<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
 						<div><hr></div>
 					</div>
 				<% end %>
@@ -89,7 +89,7 @@
 
 			<% if @news_things_we_learned %>
 				<% @news_things_we_learned.each do |news| %>
-					<div class="col-md-12 section-header-blue">3 Cosas que confirmamos</div>
+					<div class="col-md-12 section-header-blue section-header-fs">3 Cosas que confirmamos</div>
 					<div class="col-md-12">
 						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
@@ -102,7 +102,7 @@
 							<% rescue Exception %>
 							<% end %>
 						</div>
-						<div class="content-text"><%= simple_format(news.summary) %></div>
+						<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
 						<div><hr></div>
 					</div>
 				<% end %>
@@ -110,7 +110,7 @@
 
 			<% if @news_player_week %>
 				<% @news_player_week.each do |news| %>
-					<div class="col-md-12 section-header-green">Jugador de la semana</div>
+					<div class="col-md-12 section-header-green section-header-fs">Jugador de la semana</div>
 					<div class="col-md-12">
 						<div class="news-title-small"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
@@ -123,7 +123,7 @@
 							<% rescue Exception %>
 							<% end %>
 						</div>
-						<div class="content-text"><%= simple_format(news.summary) %></div>
+						<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
 						<div><hr></div>
 					</div>
 				<% end %>
