@@ -200,12 +200,15 @@
 }
 
 .section-subtitle {
-  padding-left: 5px;
   vertical-align: middle;
-  font-size: 16px;
-  background-color: #F0F8FF;
+  background-color: #a3c2c2;
   font-weight: bold;
 }
+
+.section-subtitle-fs {
+  font-size: 16px;
+}
+
 
 .section-subtitle-item{
   font-size: 14px;
@@ -244,5 +247,14 @@
 .news-bigger-title-fs {
   font-size: 42px;
 }
+
+.section-subtitle-fs {
+  font-size: 36px;
+}
+
+.section-subtitle-item{
+  font-size: 36px;
+}
+
 
 }
