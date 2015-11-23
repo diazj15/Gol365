@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
+  get 'nextgames' => 'news#nextgames'
+  get 'teampositions' => 'news#teampositions'
+  get 'topscorers' => 'news#topscorers'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

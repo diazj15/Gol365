@@ -12,6 +12,31 @@ class NewsController < ApplicationController
   def show
   end
 
+  def nextgames
+    if params[:championship]
+      @news = News.where("category = 'Next Games'").where("championship = ?", params[:championship]).order(updated_at: :desc)
+    else
+      @news = News.where("category = 'Next Games'").order(updated_at: :desc).last(1)
+    end
+  end
+
+  def teampositions
+    if params[:championship]
+      @news = News.where("category = 'Team Positions'").where("championship = ?", params[:championship]).order(updated_at: :desc)
+    else
+      @news = News.where("category = 'Team Positions'").order(updated_at: :desc).last(1)
+    end
+  end
+
+  def topscorers
+    if params[:championship]
+      @news = News.where("category = 'Top Scorers'").where("championship = ?", params[:championship]).order(updated_at: :desc)
+    else
+      @news = News.where("category = 'Top Scorers'").order(updated_at: :desc).last(1)
+    end
+  end
+
+
   # GET /news/new
   def new
     @news = News.new

@@ -2,7 +2,7 @@
   <%= f.error_notification %> 
   <%= f.input :title, required: true, label: false, placeholder: "Titulo", input_html: {class: "form-control", rows: 1} %><br>
   <%= f.label :category, 'Categoria' %>
-  <%= f.input :category, required: true, label: false, placeholder: "Categoria", input_html: {class: "form-control"}, :collection => ['Main', 'A day like today','Know better to','3 things we learned','Player of the week', 'Next Games'] %><br>
+  <%= f.input :category, required: true, label: false, placeholder: "Categoria", input_html: {class: "form-control"}, :collection => ['Main', 'Secondary', 'A day like today','Know better to','3 things we learned','Player of the week', 'Next Games', 'Team Positions', 'Top Scorers'] %><br>
   <%= f.label :championship, 'Campeonato' %>
   <%= f.input :championship, required: true, label: false, placeholder: "Campeonato", input_html: {class: "form-control"}, :collection => ['Mexico','Costa Rica','Brazil','España','Inglaterra','Champions League'] %><br>
   <%= f.label :summary, 'Resumen' %>

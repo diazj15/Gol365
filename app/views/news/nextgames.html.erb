@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="text-header text-header-fs">Próximos Juegos</div>
+	</div>
+
+	<% if @news %>
+		<%
+		# For every news
+		@news.each do |news|  %>
+			<div class="col-md-12">
+				<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+			</div>
+			<%= news.image_link_small.html_safe %>
+		<% end %>
+	<% end %>
+	</div>
+</div>

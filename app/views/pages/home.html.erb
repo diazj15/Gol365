@@ -7,7 +7,7 @@
 						<% if params[:championship] %>
 							Noticias del Campeonato de <%= params[:championship] %>
 						<% else %>
-							Noticias
+							Noticias del Campeonato
 						<% end %>
 					</div>
 				</div>
@@ -43,15 +43,15 @@
 
 	<div class="col-md-4">
 		<div class="row">
-			<% if @news_next_games %>
+			<% if @news_secondary %>
 				<div class="col-md-12">
-					<div class="section-header section-header-fs">Próximos Juegos</div>
+					<div class="section-header section-header-fs">Otras Noticias</div>
 				</div>
 				<%
 				# For every news
-				@news_next_games.each do |news|  %>
+				@news_secondary.each do |news|  %>
 					<div class="col-md-12">
-						<%= link_to news.title, news_path(news, :championship => params[:championship]) %>
+						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 					</div>
 					<%= news.image_link_small.html_safe %>
 				<% end %>
