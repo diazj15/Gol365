@@ -302,15 +302,16 @@
 
 @media screen and (max-width: 1230px) {
   .gol-logo {
-    width: 280px;
-    height: 60px;
+    width: 600px;
+    height: 120px;
   }
 }
 
 
 @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 770px), (min-resolution: 192dpi) and (max-width: 770px) {
   .gol-logo {
-    width: 240px;
+    width: 600px;
+    height: 120px;
     margin-top: 4px;
     margin-left: -10px;
   }
