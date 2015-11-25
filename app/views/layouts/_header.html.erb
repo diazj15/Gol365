@@ -8,9 +8,8 @@
         </div>
         <div class="col-md-2 col-sm-2">
           <button type="button" class="navbar-toggle collapsed header-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <div class="menu-header">Menu</div>
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar header-line"></span>
-            <span class="icon-bar header-line"></span>
             <span class="icon-bar header-line"></span>
             <span class="icon-bar header-line"></span>
             <span class="icon-bar header-line"></span>
@@ -21,72 +20,16 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collx apse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle menu-option menu-option-fs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">México<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><%= link_to "<i class='fa fa-newspaper-o'></i></i>&nbsp;&nbsp;Noticas".html_safe, root_path(:championship => 'Mexico') %></li>
-              <li><%= link_to "<i class='fa fa-clock-o'></i>&nbsp;&nbsp;&nbsp;Próximos Partidos".html_safe, nextgames_path(:championship => 'Mexico') %></li>
-              <li><%= link_to "<i class='fa fa-table'></i>&nbsp;&nbsp;&nbsp;Tabla de Posiciones".html_safe, teampositions_path(:championship => 'Mexico') %></li>
-              <li><%= link_to "<i class='fa fa-trophy'></i>&nbsp;&nbsp;&nbsp;Goleadores".html_safe, topscorers_path(:championship => 'Mexico') %></li>
-          </ul>        
+        <ul class="nav navbar-nav navbar-left  menu-option menu-option-fs">
+          <li class="menu-option-list"><%= link_to "México".html_safe, root_path(:championship => 'Mexico') %></li>
+          <li class="menu-option-list"><%= link_to "Costa Rica".html_safe, root_path(:championship => 'Costa Rica') %></li>
+          <li class="menu-option-list"><%= link_to "España".html_safe, root_path(:championship => 'España') %></li>
+          <li class="menu-option-list"><%= link_to "Inglaterra".html_safe, root_path(:championship => 'Inglaterra') %></li>
+          <li class="menu-option-list"><%= link_to "Champions League".html_safe, root_path(:championship => 'Champions League') %></li>
       </ul>
 
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle menu-option menu-option-fs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Costa Rica<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><%= link_to "<i class='fa fa-newspaper-o'></i></i>&nbsp;&nbsp;Noticas".html_safe, root_path(:championship => 'Costa Rica') %></li>
-              <li><%= link_to "<i class='fa fa-clock-o'></i>&nbsp;&nbsp;&nbsp;Próximos Partidos".html_safe, nextgames_path(:championship => 'Costa Rica') %></li>
-              <li><%= link_to "<i class='fa fa-table'></i>&nbsp;&nbsp;&nbsp;Tabla de Posiciones".html_safe, teampositions_path(:championship => 'Costa Rica') %></li>
-              <li><%= link_to "<i class='fa fa-trophy'></i>&nbsp;&nbsp;&nbsp;Goleadores".html_safe, topscorers_path(:championship => 'Costa Rica') %></li>
-          </ul>
-      </ul>
-
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle menu-option menu-option-fs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brazil<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><%= link_to "<i class='fa fa-newspaper-o'></i></i>&nbsp;&nbsp;Noticas".html_safe, root_path(:championship => 'Brazil') %></li>
-              <li><%= link_to "<i class='fa fa-clock-o'></i>&nbsp;&nbsp;&nbsp;Próximos Partidos".html_safe, nextgames_path(:championship => 'Brazil') %></li>
-              <li><%= link_to "<i class='fa fa-table'></i>&nbsp;&nbsp;&nbsp;Tabla de Posiciones".html_safe, teampositions_path(:championship => 'Brazil') %></li>
-              <li><%= link_to "<i class='fa fa-trophy'></i>&nbsp;&nbsp;&nbsp;Goleadores".html_safe, topscorers_path(:championship => 'Brazil') %></li>
-          </ul>
-      </ul>
-
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle menu-option menu-option-fs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">España<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><%= link_to "<i class='fa fa-newspaper-o'></i></i>&nbsp;&nbsp;Noticas".html_safe, root_path(:championship => 'España') %></li>
-              <li><%= link_to "<i class='fa fa-clock-o'></i>&nbsp;&nbsp;&nbsp;Próximos Partidos".html_safe, nextgames_path(:championship => 'España') %></li>
-              <li><%= link_to "<i class='fa fa-table'></i>&nbsp;&nbsp;&nbsp;Tabla de Posiciones".html_safe, teampositions_path(:championship => 'España') %></li>
-              <li><%= link_to "<i class='fa fa-trophy'></i>&nbsp;&nbsp;&nbsp;Goleadores".html_safe, topscorers_path(:championship => 'España') %></li>
-          </ul>
-      </ul>
-
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle menu-option menu-option-fs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inglaterra<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><%= link_to "<i class='fa fa-newspaper-o'></i></i>&nbsp;&nbsp;Noticas".html_safe, root_path(:championship => 'Inglaterra') %></li>
-              <li><%= link_to "<i class='fa fa-clock-o'></i>&nbsp;&nbsp;&nbsp;Próximos Partidos".html_safe, nextgames_path(:championship => 'Inglaterra') %></li>
-              <li><%= link_to "<i class='fa fa-table'></i>&nbsp;&nbsp;&nbsp;Tabla de Posiciones".html_safe, teampositions_path(:championship => 'Inglaterra') %></li>
-              <li><%= link_to "<i class='fa fa-trophy'></i>&nbsp;&nbsp;&nbsp;Goleadores".html_safe, topscorers_path(:championship => 'Inglaterra') %></li>
-          </ul>
-      </ul>
-
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle menu-option menu-option-fs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Champions League<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><%= link_to "<i class='fa fa-newspaper-o'></i></i>&nbsp;&nbsp;Noticas".html_safe, root_path(:championship => 'Champions League') %></li>
-              <li><%= link_to "<i class='fa fa-clock-o'></i>&nbsp;&nbsp;&nbsp;Próximos Partidos".html_safe, nextgames_path(:championship => 'Champions League') %></li>
-              <li><%= link_to "<i class='fa fa-table'></i>&nbsp;&nbsp;&nbsp;Tabla de Posiciones".html_safe, teampositions_path(:championship => 'Champions League') %></li>
-              <li><%= link_to "<i class='fa fa-trophy'></i>&nbsp;&nbsp;&nbsp;Goleadores".html_safe, topscorers_path(:championship => 'Champions League') %></li>
-          </ul>
-      </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
