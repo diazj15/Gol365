@@ -17,10 +17,10 @@ class PagesController < ApplicationController
 		@news_next_games = News.where("category = 'Next Games'").order(updated_at: :desc)
 		@news_team_positions = @news_next_games
 		@news_top_scorers = @news_next_games
-		@news_day_like_today = News.where("category = 'A day like today'").order(updated_at: :desc).last(1)
-		@news_know_better_to = News.where("category = 'Know better to'").order(updated_at: :desc).last(1)
-		@news_things_we_learned = News.where("category = '3 things we learned'").order(updated_at: :desc).last(1)
-		@news_player_week = News.where("category = 'Player of the week'").order(updated_at: :desc).last(1)
+		@news_day_like_today = News.where("category = 'A day like today'").order(updated_at: :desc).first(1)
+		@news_know_better_to = News.where("category = 'Know better to'").order(updated_at: :desc).first(1)
+		@news_things_we_learned = News.where("category = '3 things we learned'").order(updated_at: :desc).first(1)
+		@news_player_week = News.where("category = 'Player of the week'").order(updated_at: :desc).first(1)
 	end
   end
 end
