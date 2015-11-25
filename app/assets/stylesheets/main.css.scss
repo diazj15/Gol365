@@ -306,10 +306,13 @@
   height: 100px;
 }
 
-.menu-option-list{
-  width: 100%;
-  font-size: 30px;
-}
+  .menu-option-list{
+    width: 100%;
+  }
+
+  .menu-option-list a{
+    font-size: 36px;
+  }
 
 }
 
@@ -337,7 +340,10 @@
 
   .menu-option-list{
     width: 100%;
-    font-size: 30px;
+  }
+
+  .menu-option-list a{
+    font-size: 36px;
   }
 
 }
@@ -375,7 +381,9 @@
 
   .menu-option-list{
     width: 100%;
-    font-size: 30px;
   }
 
+  .menu-option-list a{
+    font-size: 36px;
+  }
 }
