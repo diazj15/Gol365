@@ -47,10 +47,10 @@
 				<div class="col-md-12">
 					<div class="text-header text-header-fs">Tabla de Posiciones del Campeonato</div>
 
-					<% if @news %>
+					<% if @news_team_positions %>
 						<%
 						# For every news
-						@news.each do |news|  %>
+						@news_team_positions.each do |news|  %>
 							<div class="col-md-12">
 								<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 								<%= news.image_link_small.html_safe %>
@@ -65,10 +65,10 @@
 			<div class="col-md-12">
 				<div class="text-header text-header-fs">Próximos Juegos</div>
 
-				<% if @news %>
+				<% if @news_next_games %>
 					<%
 					# For every news
-					@news.each do |news|  %>
+					@news_next_games.each do |news|  %>
 						<div class="col-md-12">
 							<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 							<%= news.image_link_small.html_safe %>
@@ -83,10 +83,10 @@
 				<div class="col-md-12">
 					<div class="text-header text-header-fs">Goleadores del Campeonato</div>
 
-					<% if @news %>
+					<% if @news_top_scorers %>
 						<%
 						# For every news
-						@news.each do |news|  %>
+						@news_top_scorers.each do |news|  %>
 							<div class="col-md-12">
 								<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 								<%= news.image_link_small.html_safe %>
