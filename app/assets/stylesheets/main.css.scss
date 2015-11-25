@@ -312,13 +312,13 @@
 
   .header-button {
     width: 100px;
-    height: 100px;  
+    height: 80px;  
   }
 
   .header-line {
-      width: 100px;
-    }
-
+    width: 80px !important;
+    height: 10px !important;
+  }
 }
 
 
@@ -343,12 +343,6 @@
   .menu-header{
     font-size: 22px;
   }
-
-  .header-line {
-    width: 80px !important;
-    height: 10px !important;
-  }
-
 
   header .main-nav .navbar-nav {
     margin-top: 10px;
