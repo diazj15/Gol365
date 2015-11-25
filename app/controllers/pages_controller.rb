@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 		@news_player_week = News.where("category = 'Player of the week'").where("championship = ?", params[:championship]).order(updated_at: :desc).last(1)
 	else
 		@news_main = News.where("category = 'Main'").order(updated_at: :desc).last(@NewsLimit)
-		@news_next_games = News.where("category = 'Next Games'").order(updated_at: :desc).last(1)
+		@news_next_games = News.where("category = 'Next Games'").order(updated_at: :desc)
 		@news_team_positions = @news_next_games
 		@news_top_scorers = @news_next_games
 		@news_day_like_today = News.where("category = 'A day like today'").order(updated_at: :desc).last(1)
