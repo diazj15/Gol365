@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-5">
 		<div class="row">
 			<% if @news_main %>
 				<div class="col-md-12">
@@ -41,23 +41,22 @@
 		</div>
 	</div>
 
-	<div class="col-md-5">
+	<div class="col-md-4">
 		<% if params[:championship] %>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-header text-header-fs">Tabla de Posiciones del Campeonato</div>
-				</div>
 
-				<% if @news %>
-					<%
-					# For every news
-					@news.each do |news|  %>
-						<div class="col-md-12">
-							<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
-						</div>
-						<%= news.image_link_small.html_safe %>
+					<% if @news %>
+						<%
+						# For every news
+						@news.each do |news|  %>
+							<div class="col-md-12">
+								<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+								<%= news.image_link_small.html_safe %>
+							</div>
+						<% end %>
 					<% end %>
-				<% end %>
 				</div>
 			</div>
 		<% end %>
@@ -65,26 +64,6 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="text-header text-header-fs">Próximos Juegos</div>
-			</div>
-
-			<% if @news %>
-				<%
-				# For every news
-				@news.each do |news|  %>
-					<div class="col-md-12">
-						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
-					</div>
-					<%= news.image_link_small.html_safe %>
-				<% end %>
-			<% end %>
-			</div>
-		</div>
-		
-		<% if params[:championship] %>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="text-header text-header-fs">Tabla de Goleadores del Campeonato</div>
-				</div>
 
 				<% if @news %>
 					<%
@@ -92,13 +71,29 @@
 					@news.each do |news|  %>
 						<div class="col-md-12">
 							<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+							<%= news.image_link_small.html_safe %>
 						</div>
-						<%= news.image_link_small.html_safe %>
 					<% end %>
 				<% end %>
-				</div>
 			</div>
+		</div>
+		
+		<% if params[:championship] %>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-header text-header-fs">Goleadores del Campeonato</div>
 
+					<% if @news %>
+						<%
+						# For every news
+						@news.each do |news|  %>
+							<div class="col-md-12">
+								<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+								<%= news.image_link_small.html_safe %>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
 		<% end %>
 	</div>
 

@@ -221,7 +221,11 @@
   height: 60px;
 }
 
-
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
 
 
 
