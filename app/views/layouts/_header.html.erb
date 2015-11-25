@@ -33,19 +33,21 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown menu-option-list">
-          <a href="#" class="dropdown-toggle menu-option menu-option-fs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Otras Acciones <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <% if current_user %>
-              <% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
-                <li><%= link_to "<i class='fa fa-newspaper-o'></i>&nbsp;Crear Noticia".html_safe, new_news_path %></li>
-              <% end %>
+          <div class="menu-option-list">
+            <a href="#" class="dropdown-toggle menu-option menu-option-fs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Otras Acciones <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% if current_user %>
+                <% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
+                  <li class="menu-option-list"><%= link_to "<i class='fa fa-newspaper-o'></i>&nbsp;Crear Noticia".html_safe, new_news_path %></li>
+                <% end %>
 
-              <li><%= link_to "<i class='fa fa-times-circle'></i>&nbsp;Salir".html_safe, destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "<i class='fa fa-user-plus'></i>&nbsp;Registrarse".html_safe, new_user_registration_path %><</li>
-              <li><%= link_to "<i class='fa fa-sign-in'></i>&nbsp;Ingresar".html_safe, new_user_session_path %></li>
-            <% end %>
-          </ul>
+                <li class="menu-option-list"><%= link_to "<i class='fa fa-times-circle'></i>&nbsp;Salir".html_safe, destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li class="menu-option-list"><%= link_to "<i class='fa fa-user-plus'></i>&nbsp;Registrarse".html_safe, new_user_registration_path %><</li>
+                <li class="menu-option-list"><%= link_to "<i class='fa fa-sign-in'></i>&nbsp;Ingresar".html_safe, new_user_session_path %></li>
+              <% end %>
+            </ul>
+          </div>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
