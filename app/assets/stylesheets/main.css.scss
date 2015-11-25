@@ -130,7 +130,7 @@
 }
 
 .menu-option{
-  color: white !important;;
+  color: white !important;
 }
 
 .menu-option-fs{
@@ -336,11 +336,17 @@
   }
 
   .header-line {
-    width: 100px;
+    width: 40px !important;
+    height: 5px !important;
   }
 
-.menu-header{
+  .menu-header{
     font-size: 22px;
+  }
+
+  .header-line {
+    width: 40px !important;
+    height: 5px !important;
   }
 
 
