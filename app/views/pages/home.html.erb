@@ -30,7 +30,7 @@
 							</div>
 							<div class="col-md-6 col-sm-12">
 								<div class="news-title news-title-fs text-center pull-right">
-									<%= link_to news.title, news_path(news, :championship => params[:championship]) %>
+									<%= link_to news.title, news_path(news, :championship => params[:championship]), class: "pull-right" %>
 								</div>
 
 								<div class="news-subtitle news-subtitle-fs"><%= local_time(news.updated_at) %></div>
