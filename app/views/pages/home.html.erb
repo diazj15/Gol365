@@ -16,10 +16,7 @@
 				@news_main.each do |news|  %>
 					<div class="col-md-12">
 						<div class="row">
-							<div class="col-md-12 col-sm-12">
-								<div class="news-title news-title-fs text-center"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
-							</div>
-							<div class="col-md-6 col-sm-12">
+							<div class="col-md-6 col-sm-6">
 								<div class="center-div">
 									<% begin %>
 										<% if news.image_link_small.nil? || news.image_link_small.empty? %>
@@ -31,9 +28,13 @@
 									<% end %>
 								</div>
 							</div>
-							<div class="col-md-6 col-sm-12">
+							<div class="col-md-6 col-sm-6">
+								<div class="news-title news-title-fs text-center">
+									<%= link_to news.title, news_path(news, :championship => params[:championship]) %>
+								</div>
+
 								<div class="news-subtitle news-subtitle-fs"><%= local_time(news.updated_at) %></div>
-								<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
+								<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>								
 							</div>
 						</div>
 						<div><hr></div>
