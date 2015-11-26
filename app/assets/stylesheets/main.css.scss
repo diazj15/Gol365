@@ -227,14 +227,10 @@
     float: none;
 }
 
-
-.center-div {
- position: absolute;
- margin: auto;
- top: 0;
- right: 0;
- bottom: 0;
- left: 0;
+.center-div
+{
+     margin: 0 auto;
+     max-width: 700px;
 }
 
 
