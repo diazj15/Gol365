@@ -1,5 +1,11 @@
 <div class="row">
-	<div class="col-md-3 col-sm1">&nbsp;</div>
+	<div class="col-md-3 col-sm1">
+		<% if current_user %>
+			<% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
+				<%= link_to 'Editar', edit_news_path(@news), class: "btn btn-primary btn-lg pull-right" %>
+			<% end %>
+		<% end %>
+	</div>
 	<div class="col-md-6 col-sm10">
 		<%= link_to "Volver", root_path(:championship => params[:championship]), class: "btn btn-primary btn-lg pull-right top-margin" %>
 		<div class="news-bigger-title news-bigger-title-fs"><%= @news.title %></div>
@@ -18,13 +24,8 @@
 		<div class="news-subtitle-center"><%= local_time(@news.updated_at) %></div>
 		<div class="content-text content-text-fs top-margin"><%= simple_format(@news.body) %></div>
 		<hr>
-		<%= link_to "Volver", root_path(:championship => params[:championship]), class: "btn btn-primary btn-lg pull-right" %>
-
-		<% if current_user %>
-			<% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
-				<%= link_to 'Editar', edit_news_path(@news), class: "btn btn-primary btn-lg pull-right" %>
-			<% end %>
-		<% end %>
 	</div>
-	<div class="col-md-3 col-sm1">&nbsp;</div>
+	<div class="col-md-3 col-sm1">
+		<%= link_to "Volver", root_path(:championship => params[:championship]), class: "btn btn-primary btn-lg pull-right" %>
+	</div>
 </div>
