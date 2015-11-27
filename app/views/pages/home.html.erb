@@ -69,6 +69,27 @@
 				<div class="col-md-12">&nbsp;</div>
 			</div>			
 		<% end %>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-header section-header-fs">Resultados</div>
+
+				<% if @news_previous_games %>
+					<%
+					# For every news
+					@news_previous_games.each do |news|  %>
+						<div class="col-md-12">
+							<div class="news-title-small news-title-small-fs"><%= news.title %></div>
+							<%= news.image_link_small.html_safe %>
+						</div>
+
+						<div class="col-md-12">&nbsp;</div>
+						<div class="col-md-12">&nbsp;</div>
+
+					<% end %>
+				<% end %>
+			</div>
+		</div>
 		
 		<div class="row">
 			<div class="col-md-12">

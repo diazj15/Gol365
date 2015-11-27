@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   	if params[:championship]
 		@news_main = News.where("category = 'Main'").where("championship = ?", params[:championship]).order(updated_at: :desc).first(@NewsLimit)
 		@news_team_positions = News.where("category = 'Team Positions'").where("championship = ?", params[:championship]).order(updated_at: :desc)
+		@news_previous_games = News.where("category = 'Previous Games'").where("championship = ?", params[:championship]).order(updated_at: :desc)
 		@news_next_games = News.where("category = 'Next Games'").where("championship = ?", params[:championship]).order(updated_at: :desc)
 		@news_top_scorers = News.where("category = 'Top Scorers'").where("championship = ?", params[:championship]).order(updated_at: :desc)
 		@news_day_like_today = News.where("category = 'A day like today'").where("championship = ?", params[:championship]).order(updated_at: :desc).first(1)
@@ -15,6 +16,7 @@ class PagesController < ApplicationController
 	else
 		@news_main = News.where("category = 'Main'").order(updated_at: :desc).first(@NewsLimit)
 		@news_next_games = News.where("category = 'Next Games'").order(updated_at: :desc)
+		@news_previous_games = News.where("category = 'Previous Games'").order(updated_at: :desc)
 		@news_team_positions = @news_next_games
 		@news_top_scorers = @news_next_games
 		@news_day_like_today = News.where("category = 'A day like today'").order(updated_at: :desc).first(1)
