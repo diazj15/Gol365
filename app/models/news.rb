@@ -8,13 +8,14 @@ class News < ActiveRecord::Base
 		:styles => { :medium => "300x300>" }
 
 	# used to present the media when it is placed in the body of the news
-	auto_html_for :body do
+	auto_html_for :video do
 	    html_escape
 	    image
 	    youtube(:width => '100%', :height => 250, :autoplay => false)
 	    link :target => "_blank", :rel => "nofollow"
 	    simple_format
   	end
+
 
   	# Validates that the attached file is actually an image
   	validates_attachment_content_type :image,

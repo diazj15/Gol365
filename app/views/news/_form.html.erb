@@ -10,6 +10,8 @@
   <%=  f.label :body, 'Noticia' %>
   <%=  f.cktext_area :body, :ckeditor => {:language => 'es'} %><br>
 
+  <%= f.input :video, required: false, label: false, placeholder: "Video", input_html: {class: "form-control", rows: 10} %><br>
+
   <%= f.input :image_link_small, required: false, label: false, placeholder: "Link de Imagen", input_html: {class: "form-control", rows: 10} %><br>
   <%= f.input :image %><br>
 
