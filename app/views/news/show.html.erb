@@ -2,7 +2,7 @@
 	<div class="col-md-3 col-sm1">
 		<% if current_user %>
 			<% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
-				<%= link_to 'Editar', edit_news_path(@news), class: "btn btn-primary btn-lg pull-right" %>
+				<%= link_to 'Editar', edit_news_path(@news), class: "btn btn-primary btn-lg pull-right button-fs" %>
 			<% end %>
 		<% end %>
 	</div>
@@ -27,6 +27,6 @@
 		<hr>
 	</div>
 	<div class="col-md-3 col-sm1">
-		<%= link_to "Volver", root_path(:championship => params[:championship]), class: "btn btn-primary btn-lg pull-right" %>
+		<%= link_to "Volver", root_path(:championship => params[:championship]), class: "btn btn-primary btn-lg pull-right button-fs" %>
 	</div>
 </div>
