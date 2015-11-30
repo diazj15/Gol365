@@ -1,3 +1,4 @@
+<div class="row">
 	<div class="col-md-4">
 		<% if params[:championship] %>
 			<div class="row">
@@ -89,53 +90,50 @@
 		<% end %>
 	</div>	
 
-
-	<div class="row">
-		<div class="col-md-5">
-			<div class="row">
-				<% if @news_main %>
-					<div class="col-md-12">
-						<div class="text-header text-header-fs">
-							<% if params[:championship] %>
-								Noticias del Campeonato de <%= params[:championship] %>
-							<% else %>
-								Noticias
-							<% end %>
-						</div>
+	<div class="col-md-5">
+		<div class="row">
+			<% if @news_main %>
+				<div class="col-md-12">
+					<div class="text-header text-header-fs">
+						<% if params[:championship] %>
+							Noticias del Campeonato de <%= params[:championship] %>
+						<% else %>
+							Noticias
+						<% end %>
 					</div>
-					<%
-					# For every news
-					@news_main.each do |news|  %>
-						<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-6 col-sm-12">
-									<div class="center-div">
-										<% begin %>
-											<% if news.image_link_small.nil? || news.image_link_small.empty? %>
-												<%= image_tag news.image.url(:medium), class: "img-responsive" %>
-											<% else %> 
-												<%= news.image_link_small.html_safe %>
-											<% end %>
-										<% rescue Exception %>
+				</div>
+				<%
+				# For every news
+				@news_main.each do |news|  %>
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-6 col-sm-12">
+								<div class="center-div">
+									<% begin %>
+										<% if news.image_link_small.nil? || news.image_link_small.empty? %>
+											<%= image_tag news.image.url(:medium), class: "img-responsive" %>
+										<% else %> 
+											<%= news.image_link_small.html_safe %>
 										<% end %>
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-12">
-									<div class="news-title news-title-fs text-center">
-										<%= link_to news.title, news_path(news, :championship => params[:championship]), class: "pull-right" %>
-									</div>
-
-									<div class="news-subtitle news-subtitle-fs"><%= local_time(news.updated_at) %></div>
-									<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>								
+									<% rescue Exception %>
+									<% end %>
 								</div>
 							</div>
-							<div class="hr-style"><hr></div>
-						</div>
-					<% end %>
-				<% end %>
-			</div>
-		</div>
+							<div class="col-md-6 col-sm-12">
+								<div class="news-title news-title-fs text-center">
+									<%= link_to news.title, news_path(news, :championship => params[:championship]), class: "pull-right" %>
+								</div>
 
+								<div class="news-subtitle news-subtitle-fs"><%= local_time(news.updated_at) %></div>
+								<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>								
+							</div>
+						</div>
+						<div class="hr-style"><hr></div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>	
 
 	<div class="col-md-3">
 		<div class="row">
