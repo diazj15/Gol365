@@ -27,7 +27,7 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<div class="section-header section-header-fs">Resultados</div>
+				<div class="text-header text-header-fs">Resultados</div>
 
 				<% if @news_previous_games %>
 					<%
@@ -120,7 +120,7 @@
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-12">
-								<div class="text-header text-header-fs">
+								<div class="news-title news-title-fs text-center">
 									<%= link_to news.title, news_path(news, :championship => params[:championship]), class: "pull-right" %>
 								</div>
 
