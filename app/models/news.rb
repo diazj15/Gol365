@@ -11,7 +11,7 @@ class News < ActiveRecord::Base
 	auto_html_for :video do
 	    html_escape
 	    image
-	    youtube(:width => '100%', :height => 250, :autoplay => false)
+	    youtube(:width => '100%', :height => 500, :autoplay => false)
 	    link :target => "_blank", :rel => "nofollow"
 	    simple_format
   	end
