@@ -23,7 +23,7 @@
 		<div class="news-subtitle-center"><%= local_time(@news.updated_at) %></div>
 		
 		<div class="content-text content-text-fs top-margin"><%= simple_format(@news.body) %></div>
-		<div class="panel-body"><%= raw(@news.video_html) %></div>
+		<div class="video-header"><%= raw(@news.video_html) %></div>
 		<hr>
 	</div>
 	<div class="col-md-3 col-sm1">
