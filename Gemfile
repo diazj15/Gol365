@@ -51,6 +51,9 @@ gem 'friendly_id'
 # To use a rich text editor
 gem 'ckeditor'
 
+# To see the statistics
+gem 'newrelic_rpm'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
