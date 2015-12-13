@@ -3,7 +3,7 @@
 		<% if params[:championship] %>
 			<div class="row">
 				<div class="col-md-12">
-					<div class="section-header section-header-fs">Tabla de Posiciones del Campeonato</div>
+					<div class="section-header section-header-fs"><h1>Tabla de Posiciones del Campeonato</h1></div>
 
 					<% if @news_team_positions %>
 						<%
@@ -27,7 +27,7 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<div class="section-header section-header-fs">Resultados</div>
+				<div class="section-header section-header-fs"><h1>Resultados</h1></div>
 
 				<% if @news_previous_games %>
 					<%
@@ -48,7 +48,7 @@
 		
 		<div class="row">
 			<div class="col-md-12">
-				<div class="section-header section-header-fs">Próximos Juegos</div>
+				<div class="section-header section-header-fs"><h1>Próximos Juegos</h1></div>
 
 				<% if @news_next_games %>
 					<%
@@ -74,7 +74,7 @@
 		<% if params[:championship] %>
 			<div class="row">
 				<div class="col-md-12">
-					<div class="section-header section-header-fs">Goleadores del Campeonato</div>
+					<div class="section-header section-header-fs"><h1>Goleadores del Campeonato</h1></div>
 
 					<% if @news_top_scorers %>
 						<%
@@ -96,9 +96,9 @@
 				<div class="col-md-12">
 					<div class="text-header text-header-fs">
 						<% if params[:championship] %>
-							Noticias del Campeonato de <%= params[:championship] %>
+							<h1>Noticias del Campeonato de <%= params[:championship] %></h1>
 						<% else %>
-							Noticias
+							<h1>Principales noticias de futbol</h1>
 						<% end %>
 					</div>
 				</div>
