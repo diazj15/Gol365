@@ -162,7 +162,11 @@
 
 			<% if @news_know_better_to %>
 				<% @news_know_better_to.each do |news|  %>
-					<div class="col-md-12 text-header"><h1 class="text-header-fs">Conozca mejor a</h1></div>
+					<div class="col-md-12">
+						<div class="text-header">
+							<h1 class="text-header-fs">Conozca mejor a</h1>
+						</div>	
+					</div>
 					<div class="col-md-12">
 						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
 						<div>
