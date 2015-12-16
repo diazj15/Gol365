@@ -52,7 +52,7 @@ gem 'friendly_id'
 gem 'ckeditor'
 
 # To see the statistics
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 
 # Use ActiveModel has_secure_password
