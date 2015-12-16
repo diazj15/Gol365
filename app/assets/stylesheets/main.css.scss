@@ -389,6 +389,15 @@ hr {
   font-size: 36px;
 }
 
+hr {
+    border: none;
+    height: 20px;
+    /* Set the hr color */
+    color: #DEDEDE; /* old IE */
+    background-color: #DEDEDE; /* Modern Browsers */
+}
+
+
 }
 
 
@@ -430,6 +439,14 @@ hr {
   height: 35px;
   display: block;
   margin: 0 auto;  
+}
+
+hr {
+    border: none;
+    height: 20px;
+    /* Set the hr color */
+    color: #DEDEDE; /* old IE */
+    background-color: #DEDEDE; /* Modern Browsers */
 }
 
 }
