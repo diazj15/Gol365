@@ -7,7 +7,7 @@
 		<div class="news-bigger-title">
 			<% begin %>
 				<% if @news.image_link_small.nil? || @news.image_link_small.empty? %>
-					<%= image_tag @news.image.url(:medium), class: "img-responsive image-center" %>
+					<%= image_tag @news.image.url(:original), class: "img-responsive image-center" %>
 				<% else %> 
 					<%= @news.image_link_small.html_safe %>										
 				<% end %>
