@@ -20,6 +20,16 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-left  menu-option menu-option-fs">
+        <li class="menu-option-list"><%= link_to "México".html_safe, root_path(:championship => 'Mexico') %></li>
+        <li class="menu-option-list"><%= link_to "Costa Rica".html_safe, root_path(:championship => 'Costa Rica') %></li>
+        <li class="menu-option-list"><%= link_to "España".html_safe, root_path(:championship => 'España') %></li>
+        <li class="menu-option-list"><%= link_to "Inglaterra".html_safe, root_path(:championship => 'Inglaterra') %></li>
+        <li class="menu-option-list"><%= link_to "Champions League".html_safe, root_path(:championship => 'Champions League') %></li>
+        <li class="menu-option-list"><%= link_to "Libertadores".html_safe, root_path(:championship => 'Libertadores') %></li>
+      </ul>
+    </ul>
 
     <div class="pull-right">
       <ul class="nav navbar-nav menu-option">
@@ -35,16 +45,6 @@
       </ul>
     </div>
 
-    <ul class="nav navbar-nav">
-      <ul class="nav navbar-nav navbar-left  menu-option menu-option-fs">
-        <li class="menu-option-list"><%= link_to "México".html_safe, root_path(:championship => 'Mexico') %></li>
-        <li class="menu-option-list"><%= link_to "Costa Rica".html_safe, root_path(:championship => 'Costa Rica') %></li>
-        <li class="menu-option-list"><%= link_to "España".html_safe, root_path(:championship => 'España') %></li>
-        <li class="menu-option-list"><%= link_to "Inglaterra".html_safe, root_path(:championship => 'Inglaterra') %></li>
-        <li class="menu-option-list"><%= link_to "Champions League".html_safe, root_path(:championship => 'Champions League') %></li>
-        <li class="menu-option-list"><%= link_to "Libertadores".html_safe, root_path(:championship => 'Libertadores') %></li>
-      </ul>
-    </ul>
   </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
