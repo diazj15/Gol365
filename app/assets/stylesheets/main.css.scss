@@ -410,6 +410,11 @@ hr {
 
 
 @media screen and (max-width: 1230px) {
+
+  .navbar-toggle {
+      display: block;
+  }
+
   .gol-logo {
     width: 300px;
     height: 100px;
@@ -460,6 +465,11 @@ hr {
 
 
 @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 770px), (min-resolution: 192dpi) and (max-width: 770px) {
+
+  .navbar-toggle {
+      display: block;
+  }
+
   .gol-logo {
     width: 300px;
     height: 100px;
