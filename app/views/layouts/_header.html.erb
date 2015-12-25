@@ -1,24 +1,9 @@
 <nav class="navbar navbar-default header">
-  <div class="container-fluid pull-right collapse navbar-collapse">
-    <ul class="nav navbar-nav menu-option">
-      <% if current_user %>
-        <% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
-          <li class="menu-option-list"><%= link_to "<i class='fa fa-newspaper-o'></i>&nbsp;Crear Noticia".html_safe, new_news_path %></li>
-        <% end %>
-        <li class="menu-option-list"><%= link_to "<i class='fa fa-times-circle'></i>&nbsp;Salir".html_safe, destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li class="menu-option-list"><%= link_to "<i class='fa fa-user-plus'></i>&nbsp;Registrarse".html_safe, new_user_registration_path %></li>
-        <li class="menu-option-list"><%= link_to "<i class='fa fa-sign-in'></i>&nbsp;Ingresar".html_safe, new_user_session_path %></li>
-      <% end %>
-    </ul>
-  </div>
-
-
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <div class="row">
       <div class="col-md-4 col-sm-4">
-        <button type="button" class="navbar-toggle collapsed header-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1 bs-example-navbar-collapse-2" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed header-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <div class="menu-header">Menu</div>
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar header-line"></span>
@@ -35,6 +20,21 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <div class="pull-right">
+      <ul class="nav navbar-nav menu-option">
+        <% if current_user %>
+          <% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
+            <li class="menu-option-list"><%= link_to "<i class='fa fa-newspaper-o'></i>&nbsp;Crear Noticia".html_safe, new_news_path %></li>
+          <% end %>
+          <li class="menu-option-list"><%= link_to "<i class='fa fa-times-circle'></i>&nbsp;Salir".html_safe, destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="menu-option-list"><%= link_to "<i class='fa fa-user-plus'></i>&nbsp;Registrarse".html_safe, new_user_registration_path %></li>
+          <li class="menu-option-list"><%= link_to "<i class='fa fa-sign-in'></i>&nbsp;Ingresar".html_safe, new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+
     <ul class="nav navbar-nav">
       <ul class="nav navbar-nav navbar-left  menu-option menu-option-fs">
         <li class="menu-option-list"><%= link_to "México".html_safe, root_path(:championship => 'Mexico') %></li>
