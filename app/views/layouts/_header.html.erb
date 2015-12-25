@@ -1,14 +1,13 @@
 <nav class="navbar navbar-default header">
   <div class="container-fluid">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav section-header">
       <% if current_user %>
         <% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
           <li class="menu-option-list"><%= link_to "<i class='fa fa-newspaper-o'></i>&nbsp;Crear Noticia".html_safe, new_news_path %></li>
         <% end %>
-
         <li class="menu-option-list"><%= link_to "<i class='fa fa-times-circle'></i>&nbsp;Salir".html_safe, destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li class="menu-option-list"><%= link_to "<i class='fa fa-user-plus'></i>&nbsp;Registrarse".html_safe, new_user_registration_path %><</li>
+        <li class="menu-option-list"><%= link_to "<i class='fa fa-user-plus'></i>&nbsp;Registrarse".html_safe, new_user_registration_path %></li>
         <li class="menu-option-list"><%= link_to "<i class='fa fa-sign-in'></i>&nbsp;Ingresar".html_safe, new_user_session_path %></li>
       <% end %>
     </ul>
