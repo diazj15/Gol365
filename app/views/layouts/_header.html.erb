@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default header">
   <div class="container-fluid pull-right">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav menu-option">
       <% if current_user %>
         <% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
           <li class="menu-option-list"><%= link_to "<i class='fa fa-newspaper-o'></i>&nbsp;Crear Noticia".html_safe, new_news_path %></li>
