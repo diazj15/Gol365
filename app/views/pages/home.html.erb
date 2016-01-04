@@ -96,9 +96,9 @@
 				<div class="col-md-12">
 					<div class="text-header">
 						<% if params[:championship] %>
-							<h1 class="text-header-fs">Noticias del Campeonato de <%= params[:championship] %></h1>
+							<div class="section-header"><h1 class="text-header-fs">Últimas noticias del Campeonato de <%= params[:championship]</h1></div>
 						<% else %>
-							<h1 class="text-header-fs">Principales noticias de futbol</h1>
+							<div class="section-header"><h1 class="text-header-fs">Últimas noticias</h1></div>
 						<% end %>
 					</div>
 				</div>
@@ -137,13 +137,37 @@
 
 	<div class="col-md-3">
 		<div class="row">
+
+			<% if @news_top_goals %>
+
+				<% @news_top_goals.each do |news|  %>
+					<div class="col-md-12">
+						<div class="section-header"><h1 class="text-header-fs">Los mejores goles</h1></div>
+					</div>
+					<div class="col-md-12">
+						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
+						<div>
+							<% begin %>
+								<% if news.image_link_small.nil? || news.image_link_small.empty? %>
+									<%= image_tag news.image.url(:medium), class: "img-responsive image-center" %>
+								<% elsif %> 
+									<%= news.image_link_small.html_safe %>
+								<% end %>
+							<% rescue Exception %>
+							<% end %>
+						</div>
+						<div class="content-text content-text-fs"><%= simple_format(news.summary) %></div>
+						<div><hr></div>
+					</div>
+				<% end %>
+			<% end %>
+			
+
 			<% if @news_day_like_today %>
 
 				<% @news_day_like_today.each do |news|  %>
 					<div class="col-md-12">
-						<div class="text-header">
-							<h1 class="text-header-fs">Un día como hoy</h1>
-						</div>
+						<div class="section-header"><h1 class="text-header-fs">Un día como hoy</h1></div>
 					</div>
 					<div class="col-md-12">
 						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
@@ -167,9 +191,7 @@
 			<% if @news_know_better_to %>
 				<% @news_know_better_to.each do |news|  %>
 					<div class="col-md-12">
-						<div class="text-header">
-							<h1 class="text-header-fs">Conozca mejor a</h1>
-						</div>	
+						<div class="section-header"><h1 class="text-header-fs">Conozca mejor a</h1></div>
 					</div>
 					<div class="col-md-12">
 						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
@@ -192,9 +214,7 @@
 			<% if @news_things_we_learned %>
 				<% @news_things_we_learned.each do |news| %>
 					<div class="col-md-12">
-						<div class="text-header">
-							<h1 class="text-header-fs">3 Cosas que confirmamos</h1>
-						</div>
+						<div class="section-header"><h1 class="text-header-fs">Tres Cosas que confirmamos</h1></div>
 					</div>
 					<div class="col-md-12">
 						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
@@ -217,9 +237,7 @@
 			<% if @news_player_week %>
 				<% @news_player_week.each do |news| %>
 					<div class="col-md-12">
-						<div class="text-header">
-							<h1 class="text-header-fs">Jugador de la semana</h1>
-						</div>
+						<div class="section-header"><h1 class="text-header-fs">Jugador de la semana</h1></div>
 					</div>
 					<div class="col-md-12">
 						<div class="news-title-small news-title-small-fs"><%= link_to news.title, news_path(news, :championship => params[:championship]) %></div>
