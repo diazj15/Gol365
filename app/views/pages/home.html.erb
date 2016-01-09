@@ -8,10 +8,11 @@
 						# For every news
 						@news_team_positions.each do |news|  %>
 							<div class="section-header"><h1 class="text-header-fs"><%= news.title %></h1></div>
-							
-							<div class="col-md-12">
+
+							<div class="col-md-12 no-background">
 								<%= news.image_link_small.html_safe %>
 							</div>
+							<div class="hr-style"><hr></div>
 						<% end %>
 					<% end %>
 				</div>
