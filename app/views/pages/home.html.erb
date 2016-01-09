@@ -3,12 +3,12 @@
 		<% if params[:championship] %>
 			<div class="row">
 				<div class="col-md-12">
-					<div class="section-header"><h1 class="text-header-fs">Tabla de Posiciones del Campeonato</h1></div>
-
 					<% if @news_team_positions %>
 						<%
 						# For every news
 						@news_team_positions.each do |news|  %>
+							<div class="section-header"><h1 class="text-header-fs">news.title</h1></div>
+							
 							<div class="col-md-12">
 								<%= news.image_link_small.html_safe %>
 							</div>
