@@ -1,0 +1,22 @@
+<div class="col-md-6">
+	<div class="row" style="border-bottom:1px solid #EEEEEE;">
+		<div class="col-md-1"><b>Pos.</b></div>
+		<div class="col-md-8"><b>Jugador</b></div>
+		<div class="col-md-3"></div>
+	</div>
+
+	<%
+	@gameplayers.each do |gameplayer| 
+
+		if gameplayer.player_id != nil
+			@player = Player.find(gameplayer.player_id %>
+			<div class="row" style="border-bottom:1px solid #EEEEEE;">
+				<div class="col-md-1"><%= @player.position[0, 3] %></div>
+				<div class="col-md-8"><%= @player.name %></div>
+				<div class="col-md-3"></div>
+
+			</div>
+		<% end 
+	end %>
+	
+</div>

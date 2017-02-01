@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idgame: 1
+  iteam: 1
+  idplayer: 1
+
+two:
+  idgame: 1
+  iteam: 1
+  idplayer: 1

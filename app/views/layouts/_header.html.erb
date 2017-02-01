@@ -16,12 +16,10 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <ul class="nav navbar-nav navbar-left  menu-option menu-option-fs">
-        <li class="menu-option-list"><%= link_to "México".html_safe, root_path(:championship => 'Mexico') %></li>
-        <li class="menu-option-list"><%= link_to "Costa Rica".html_safe, root_path(:championship => 'Costa Rica') %></li>
-        <li class="menu-option-list"><%= link_to "España".html_safe, root_path(:championship => 'España') %></li>
-        <li class="menu-option-list"><%= link_to "Inglaterra".html_safe, root_path(:championship => 'Inglaterra') %></li>
-        <li class="menu-option-list"><%= link_to "Champions League".html_safe, root_path(:championship => 'Champions League') %></li>
-        <li class="menu-option-list"><%= link_to "Libertadores".html_safe, root_path(:championship => 'Libertadores') %></li>
+        <li class="menu-option-list"><%= link_to "Primera División".html_safe, root_path(:championship => Tournament.category_values["Primera"]) %></li>
+        <li class="menu-option-list"><%= link_to "Segunda División".html_safe, root_path(:championship => 'Segunda División') %></li>
+        <li class="menu-option-list"><%= link_to "Selección Nacional".html_safe, root_path(:championship => 'Eliminatorias Rusia 2018') %></li>
+        <li class="menu-option-list"><%= link_to "Legionarios".html_safe, root_path(:championship => 'Legionarios') %></li>
       </ul>
     </ul>
 
@@ -37,6 +35,19 @@
       <% end %>
     </ul>
 
+    <% if current_user %>
+      <% if current_user.email == 'jr_diaz_cr@hotmail.com' %>
+        <div class="admin-header" id="headerAdmin">
+          <ul class="nav navbar-nav menu-option pull-right admin-header">
+              <li class="menu-option-list"><%= link_to "<i class='fa fa-hand-o-right'></i>&nbsp;Acciones".html_safe, actionlists_path %></li>
+              <li class="menu-option-list"><%= link_to "<i class='fa fa-trophy'></i>&nbsp;Campeonatos".html_safe, tournaments_path %></li>
+              <li class="menu-option-list"><%= link_to "<i class='fa fa-hospital-o'></i>&nbsp;Estadios".html_safe, fields_path %></li>
+              <li class="menu-option-list"><%= link_to "<i class='fa fa-users'></i>&nbsp;Equipos".html_safe, teams_path %></li>
+              <li class="menu-option-list"><%= link_to "<i class='fa fa-user'></i>&nbsp;Jugadores".html_safe, players_path %></li>
+              <li class="menu-option-list"><%= link_to "<i class='fa fa-gamepad'></i>&nbsp;Juegos".html_safe, games_path %></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      <% end %>
+    <% end %>
   </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
 </nav>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  action_id: 1
+  game_id: 1
+  team_id: 1
+  minute: 1
+  payer_id: 1
+  comments: MyText
+  half_number: 1
+
+two:
+  action_id: 1
+  game_id: 1
+  team_id: 1
+  minute: 1
+  payer_id: 1
+  comments: MyText
+  half_number: 1

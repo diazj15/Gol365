@@ -1,6 +1,53 @@
 Rails.application.routes.draw do
 
+  resources :playerpositions
+
+  resources :gameactions
+
+  resources :gameplayers
+
+  resources :players
+
+  resources :actionlists
+
+  resources :actions
+
+  resources :championshiptables
+  
+  resources :games do
+    collection do
+      put :lineup
+    end
+  end
+
+  resources :teams
+
+  resources :fields
+
+  resources :teamfields
+
+  resources :stadia
+
+  resources :tournaments
+
   resources :news
+
+  get 'gamedetail' => 'games#gamedetail'
+  get 'CreateGameaction' => 'games#CreateGameaction'
+  
+
+  #resources :games, :collection => { :lineupplayers => :put }
+
+  #put 'lineupplayers_games' => 'games#lineupplayers'
+  
+  #resources :gameplayers, :collection => { :lineup => :put }
+
+  #resources :gameplayers do 
+  #  collection do
+  #    put 'lineup'
+  #  end
+  #end
+  #resources :gameplayers, :collection => { :lineup => :put }
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

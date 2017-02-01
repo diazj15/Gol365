@@ -51,6 +51,13 @@ gem 'friendly_id'
 # To use a rich text editor
 gem 'ckeditor'
 
+# To enumerate list values
+gem 'enum_help'
+
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+
+gem 'momentjs-rails', '~> 2.9', :github => 'derekprior/momentjs-rails'
+
 # To see the statistics
 # gem 'newrelic_rpm'
 

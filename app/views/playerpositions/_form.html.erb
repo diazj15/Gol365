@@ -1,0 +1,26 @@
+<%= simple_form_for(@playerposition) do |f| %>
+  <% if @playerposition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@playerposition.errors.count, "error") %> prohibited this playerposition from being saved:</h2>
+
+      <ul>
+      <% @playerposition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.input :image %><br>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Actionlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actionlists.each do |actionlist| %>
+      <tr>
+        <td><%= actionlist.name %></td>
+        <td><%= link_to 'Show', actionlist %></td>
+        <td><%= link_to 'Edit', edit_actionlist_path(actionlist) %></td>
+        <td><%= link_to 'Destroy', actionlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Actionlist', new_actionlist_path %>

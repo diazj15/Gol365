@@ -1,0 +1,44 @@
+<div class="row">
+
+  <div class="col-md-2">Acción:</div>
+  <div class="col-md-10">
+    <div class="row">
+      <% actions = Actionlist.all
+
+        actions.each do |action| %>
+          <div class="col-md-2">
+            <%= radio_button_tag "action_id[]", action.id %>
+            <%= action.name %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-2">Equipo:</div>
+  <div class="col-md-2">
+    <%= radio_button_tag "actiongame_team_id[]", @game.home_team %>
+    <%= @localteam.name %>
+  </div>
+  <div class="col-md-2">
+    <%= radio_button_tag "actiongame_team_id[]", @game.visit_team %>
+    <%= @visitteam.name %>
+  </div>
+
+  <div class="col-md-2">Jugador:</div>
+  <div class="col-md-4">  
+    <%= select_tag "actionplayer_id", options_from_collection_for_select(Gameplayer.new.getcurrentplayers(@game.id), "id", "name") %>
+  </div>  
+  <div class="col-md-2">Comentario:</div>
+  <div class="col-md-10">
+    <%= text_field_tag 'comments', '', size: 125 %>
+  </div>
+  <div class="col-md-2">Minuto:</div>
+  <div class="col-md-4">
+    <%= text_field_tag 'action_minute' %>
+  </div>
+
+  <div class="col-md-2">Periodo:</div>
+  <div class="col-md-4">
+    <%= select_tag "period", "<option>1er Tiempo</option><option>2do Tiempo</option>".html_safe %>
+  </div>
+</div>

@@ -17,4 +17,6 @@
 //= require_tree .
 //= require local_time
 //= require ckeditor/init
-//= require analytics
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers

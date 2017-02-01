@@ -1,0 +1,49 @@
+<%
+@home_team = Team.find(@game.home_team)
+@visit_team = Team.find(@game.visit_team)
+%>
+
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div class="row">
+			<div class="col-md-2"><img class="img-logo-long" src="<%= @home_team.image.url %>"></div>
+			<div class="col-md-3 game-header"><%= @home_team.name %></div>
+			<div class="col-md-2 game-header-result"><%= @game.home_team_result %> - <%= @game.visit_team_result %></div>
+			<div class="col-md-3 game-header"><%= @visit_team.name %></div>
+			<div class="col-md-2"><img class="img-logo-long" src="<%= @visit_team.image.url %>"></div>
+		</div>
+		<div class="row"><hr class="hr"></div>
+		<div class="row subsection-title">Titulares:</div><br>
+		<div class="row">
+			<% @gameplayers = Gameplayer.new.getstartplayers(@game.id, @home_team.id) %>
+			<%= render 'gamedetail_lineupts' %>
+			<% @gameplayers = Gameplayer.new.getstartplayers(@game.id, @visit_team.id) %>
+			<%= render 'gamedetail_lineupts' %>
+		</div>
+		<div class="row">&nbsp;</div>
+		<div class="row">&nbsp;</div>
+		<div class="row subsection-title">Suplentes:</div><br>
+		<div class="row">
+			<% @gameplayers = Gameplayer.new.getsubplayers(@game.id, @home_team.id) %>
+			<%= render 'gamedetail_lineupts' %>
+			<% @gameplayers = Gameplayer.new.getsubplayers(@game.id, @visit_team.id) %>
+			<%= render 'gamedetail_lineupts' %>
+		</div>
+	</div>
+	<div class="col-md-2">
+
+	<%
+		@actions = Gameaction.where("team_id = " + @home_team.id.to_s + " AND game_id = " + @game.id.to_s + " AND action_id = 1")
+
+		@actions.each do |action|  %>
+		<div class="col-md-2">
+			Accion ID<%= action.id %>
+		</div>
+
+	<%
+		end
+	%>
+
+	</div>
+</div>

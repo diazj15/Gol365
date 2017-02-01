@@ -1,0 +1,117 @@
+Searching 8905 files for "idplayer"
+
+/Users/Junior/Documents/workspace/rails/Gol365/app/controllers/games_controller.rb:
+  160        players.each do |player|
+  161        
+  162:           gameplayer = Gameplayer.where(idgame: idgame, player_id: player).first
+  163            playerposition = Player.find(player).position
+  164        
+  165            if gameplayer == nil
+  166:             Gameplayer.create(idgame: idgame, player_id: player, iteam: idteam, playertype: playertype, position: Player.position_values[playerposition])
+  167            else
+  168  
+  ...
+  173        end
+  174        
+  175:       Gameplayer.where(player_id: players, idgame: idgame).update_all playertype: playertype, iteam: idteam
+  176      end
+  177    end
+
+/Users/Junior/Documents/workspace/rails/Gol365/app/views/gameplayers/_form.html.erb:
+   21    </div>
+   22    <div class="field">
+   23:     <%= f.label :idplayer %><br>
+   24:     <%= f.number_field :idplayer %>
+   25    </div>
+   26    <div class="actions">
+
+/Users/Junior/Documents/workspace/rails/Gol365/app/views/gameplayers/index.html.erb:
+    8        <th>Idgame</th>
+    9        <th>Iteam</th>
+   10:       <th>Idplayer</th>
+   11        <th colspan="3"></th>
+   12      </tr>
+   ..
+   18          <td><%= gameplayer.idgame %></td>
+   19          <td><%= gameplayer.iteam %></td>
+   20:         <td><%= gameplayer.idplayer %></td>
+   21          <td><%= link_to 'Show', gameplayer %></td>
+   22          <td><%= link_to 'Edit', edit_gameplayer_path(gameplayer) %></td>
+
+/Users/Junior/Documents/workspace/rails/Gol365/app/views/gameplayers/index.json.jbuilder:
+    1  json.array!(@gameplayers) do |gameplayer|
+    2:   json.extract! gameplayer, :id, :idgame, :iteam, :idplayer
+    3    json.url gameplayer_url(gameplayer, format: :json)
+    4  end
+
+/Users/Junior/Documents/workspace/rails/Gol365/app/views/gameplayers/show.html.erb:
+   12  
+   13  <p>
+   14:   <strong>Idplayer:</strong>
+   15:   <%= @gameplayer.idplayer %>
+   16  </p>
+   17  
+
+/Users/Junior/Documents/workspace/rails/Gol365/app/views/gameplayers/show.json.jbuilder:
+    1: json.extract! @gameplayer, :id, :idgame, :iteam, :idplayer, :created_at, :updated_at
+    2  
+
+/Users/Junior/Documents/workspace/rails/Gol365/app/views/games/_gamedetail_lineupts.erb:
+    9  	@gameplayers.each do |gameplayer| 
+   10  
+   11: 		if gameplayer.idplayer != nil
+   12: 			@player = Player.find(gameplayer.idplayer) %>
+   13  			<div class="row" style="border-bottom:1px solid #EEEEEE;">
+   14  				<div class="col-md-1"><%= @player.position[0, 3] %></div>
+
+/Users/Junior/Documents/workspace/rails/Gol365/app/views/games/_teamplayersform.html.erb:
+   24  	@startplayers.each do |startplayer|	
+   25  
+   26: 		if player.id == startplayer.idplayer
+   27  			@startplayer = true
+   28  		end
+   ..
+   30  
+   31  	@subplayers.each do |subplayer|	
+   32: 		if player.id == subplayer.idplayer
+   33  			@subplayer = true
+   34  		end
+
+/Users/Junior/Documents/workspace/rails/Gol365/db/migrate/20160712024219_create_gameplayers.rb:
+    4        t.integer :idgame
+    5        t.integer :iteam
+    6:       t.integer :idplayer
+    7  
+    8        t.timestamps null: false
+
+/Users/Junior/Documents/workspace/rails/Gol365/db/migrate/20170131215548_fix_column_player_id.rb:
+    1  class FixColumnPlayerId < ActiveRecord::Migration
+    2   def self.up
+    3:     rename_column :gameplayers, :idplayer, :player_id
+    4    end
+    5  
+
+/Users/Junior/Documents/workspace/rails/Gol365/test/controllers/gameplayers_controller_test.rb:
+   19    test "should create gameplayer" do
+   20      assert_difference('Gameplayer.count') do
+   21:       post :create, gameplayer: { idgame: @gameplayer.idgame, idplayer: @gameplayer.idplayer, iteam: @gameplayer.iteam }
+   22      end
+   23  
+   ..
+   36  
+   37    test "should update gameplayer" do
+   38:     patch :update, id: @gameplayer, gameplayer: { idgame: @gameplayer.idgame, idplayer: @gameplayer.idplayer, iteam: @gameplayer.iteam }
+   39      assert_redirected_to gameplayer_path(assigns(:gameplayer))
+   40    end
+
+/Users/Junior/Documents/workspace/rails/Gol365/test/fixtures/gameplayers.yml:
+    4    idgame: 1
+    5    iteam: 1
+    6:   idplayer: 1
+    7  
+    8  two:
+    9    idgame: 1
+   10    iteam: 1
+   11:   idplayer: 1
+   12  
+

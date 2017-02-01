@@ -1,0 +1,59 @@
+<h3><%= @teamname %></h3>
+<% 
+
+@teamplayers = Player.new.getteamplayers(@teamid) 
+@startplayers = Gameplayer.new.getstartplayers(@game.id, @teamid)
+@subplayers = Gameplayer.new.getsubplayers(@game.id, @teamid)
+%>
+
+<div class="row">
+	<div class="col-md-1">Titulares</div>
+	<div class="col-md-1">Suplentes</div>
+	<div class="col-md-1">Fuera</div>
+	<div class="col-md-9">Jugador</div>
+</div>
+
+<%
+
+@teamplayers.each do |player|
+
+	@startplayer = false
+	@subplayer = false
+	@notcalledplayer = false
+
+	@startplayers.each do |startplayer|	
+
+		if player.id == startplayer.player_id
+			@startplayer = true
+		end
+	end 
+
+	@subplayers.each do |subplayer|	
+		if player.id == subplayer.player_id
+			@subplayer = true
+		end
+	end 
+
+	if @startplayer == false && @subplayer == false
+		@notcalledplayer = true
+	end
+
+	%>
+
+	<div class="row">
+		<div class="col-md-1">
+   			<%= check_box_tag @team_type + "_starter_ids[]" , player.id, @startplayer %>
+ 		</div>
+		<div class="col-md-1">
+   			<%= check_box_tag @team_type + "_subs_ids[]" , player.id, @subplayer %>
+ 		</div>
+		<div class="col-md-1">
+   			<%= check_box_tag @team_type + "_notcalled_ids[]" , player.id, @notcalledplayer %>
+ 		</div>
+
+		<div class="col-md-9">
+   			<%= player.name %>
+ 		</div>
+ 	</div>
+
+<% end %>

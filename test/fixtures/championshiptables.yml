@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pg: 1
+  wg: 1
+  tg: 1
+  lg: 1
+  sg: 1
+  rg: 1
+  gd: 1
+  pts: 1
+
+two:
+  pg: 1
+  wg: 1
+  tg: 1
+  lg: 1
+  sg: 1
+  rg: 1
+  gd: 1
+  pts: 1

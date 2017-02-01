@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130223241) do
+ActiveRecord::Schema.define(version: 20170131215548) do
+
+  create_table "actionlists", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "actions", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "championships", force: :cascade do |t|
     t.string   "name"
@@ -20,10 +32,39 @@ ActiveRecord::Schema.define(version: 20151130223241) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "championshiptables", force: :cascade do |t|
+    t.integer  "pg"
+    t.integer  "wg"
+    t.integer  "tg"
+    t.integer  "lg"
+    t.integer  "sg"
+    t.integer  "rg"
+    t.integer  "gd"
+    t.integer  "pts"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "team_id"
+    t.integer  "championship_id"
+    t.integer  "category"
+  end
+
   create_table "confederations", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "capacity"
+    t.text     "city"
+    t.text     "country"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -38,6 +79,45 @@ ActiveRecord::Schema.define(version: 20151130223241) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "gameactions", force: :cascade do |t|
+    t.integer  "action_id"
+    t.integer  "game_id"
+    t.integer  "team_id"
+    t.integer  "minute"
+    t.integer  "payer_id"
+    t.text     "comments"
+    t.integer  "half_number"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "gameplayers", force: :cascade do |t|
+    t.integer  "idgame"
+    t.integer  "iteam"
+    t.integer  "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "type"
+    t.text     "playertype"
+    t.text     "position"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer  "home_team"
+    t.integer  "home_team_result"
+    t.integer  "visit_team"
+    t.integer  "visit_team_result"
+    t.integer  "stadium"
+    t.string   "datetime"
+    t.string   "status"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.datetime "game_date"
+    t.integer  "tournament_id"
+    t.integer  "points"
+    t.integer  "scorepoints"
+  end
 
   create_table "news", force: :cascade do |t|
     t.text     "title"
@@ -61,6 +141,49 @@ ActiveRecord::Schema.define(version: 20151130223241) do
   end
 
   add_index "news", ["slug"], name: "index_news_on_slug", unique: true
+
+  create_table "playerpositions", force: :cascade do |t|
+    t.text     "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "position"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.text     "name"
+    t.text     "complete_name"
+    t.string   "stadium_id"
+    t.string   "integer"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.text     "name"
+    t.text     "country"
+    t.date     "startDate"
+    t.date     "endDate"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "category"
+    t.integer  "classifiedteams"
+    t.integer  "eliminatedteams"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

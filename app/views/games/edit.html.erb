@@ -1,0 +1,42 @@
+<%= simple_form_for(@game, html:{class: 'form-signin'}) do |f| %>
+	<% @f = f %>
+
+	<h2>Editing Game:</h2>
+	<%= render 'form' %>
+
+	<h2>Alineaciones:</h2>
+	<% @gameplayers = Gameplayer.new %>
+
+	<div class="row">
+		<div class="col-md-6">
+			<% 
+			@team_type = 'local'
+			@teamid = @game.home_team 
+			@localteam = Team.find(@teamid)
+			@teamname = @localteam.name
+			%>
+			<%= render 'teamplayersform' %>
+		</div>
+		
+		<div class="col-md-6">
+			<% 
+			@team_type = 'visit'
+			@teamid = @game.visit_team 
+			@visitteam = Team.find(@teamid)
+			@teamname = @visitteam.name			
+			%>
+			<%= render 'teamplayersform' %>
+		</div>
+	 	
+	</div>
+	<br>
+	<h2>Acciones:</h2>
+	<%= render 'gameactions' %>
+	<br>
+	<%= f.button :submit, class: 'btn btn-primary btn-block' %>
+<% end %>
+
+<br>
+
+<%= link_to 'Show', @game %> |
+<%= link_to 'Back', games_path %>

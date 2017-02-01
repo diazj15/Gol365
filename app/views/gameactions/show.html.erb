@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @gameaction.action_id %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @gameaction.game_id %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @gameaction.team_id %>
+</p>
+
+<p>
+  <strong>Minute:</strong>
+  <%= @gameaction.minute %>
+</p>
+
+<p>
+  <strong>Payer:</strong>
+  <%= @gameaction.payer_id %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @gameaction.comments %>
+</p>
+
+<p>
+  <strong>Half number:</strong>
+  <%= @gameaction.half_number %>
+</p>
+
+<%= link_to 'Edit', edit_gameaction_path(@gameaction) %> |
+<%= link_to 'Back', gameactions_path %>

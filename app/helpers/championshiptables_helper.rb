@@ -1,0 +1,2 @@
+module ChampionshiptablesHelper
+end

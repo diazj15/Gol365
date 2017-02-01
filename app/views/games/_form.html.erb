@@ -1,0 +1,43 @@
+  <%= @f.error_notification %>
+
+<div class="row">
+  <div class="col-md-2">Equipo Local:</div>
+  <div class="col-md-4"><%= @f.input :home_team, :collection => Team.all, :label_method => :name, :value_method => :id, label: false, autofocus: true, required: true, html_input: {class: 'form-control'} %></div>
+
+  <div class="col-md-2">Equipo Visitante:</div>
+  <div class="col-md-4">  
+    <%= @f.input :visit_team, :collection => Team.all, :label_method => :name, :value_method => :id, label: false, autofocus: true, required: true, html_input: {class: 'form-control'} %>    
+  </div>
+
+  <div class="col-md-2">Goles Local:</div>
+  <div class="col-md-4">  
+    <%= @f.input :home_team_result, label: false, autofocus: true, required: false, html_input: {class: 'form-control'} %>
+  </div>
+    
+  <div class="col-md-2">Goles Visitante:</div>
+  <div class="col-md-4">
+    <%= @f.input :visit_team_result, label: false, autofocus: true, required: true, html_input: {class: 'form-control'} %>
+  </div>
+
+  <div class="col-md-2">Estadio:</div>
+  <div class="col-md-4">
+    <%= @f.input :stadium, :collection => Field.all, :label_method => :name, :value_method => :id, label: false, autofocus: true, required: true, html_input: {class: 'form-control'} %>
+  </div>
+    
+  <div class="col-md-2">Campeonato:</div>
+  <div class="col-md-4">
+    <%= @f.input :tournament_id, :collection => Tournament.all, :label_method => :name, :value_method => :id, label: false, autofocus: true, required: true, html_input: {class: 'form-control'} %>
+  </div>
+
+  <div class="col-md-2">Status:</div>
+  <div class="col-md-4">
+    <%= @f.input :status, :collection => Game.status_values.keys, label: false, autofocus: true, required: true, html_input: {class: 'form-control'} %>
+  </div>
+
+  <div class="col-md-2">Fecha:</div>
+  <div class="col-md-4">
+    <%= @f.input :game_date, :as => :datetime_picker, label: false, autofocus: true, required: true, html_input: {class: 'form-control'} %>
+  </div> 
+
+</div>
+

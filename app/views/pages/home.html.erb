@@ -1,72 +1,150 @@
 <div class="row">
 	<div class="col-md-4">
-		<% if params[:championship] %>
-			<div class="row">
-				<div class="col-md-12">
-					<% if @news_team_positions %>
-						<%
-						# For every news
-						@news_team_positions.each do |news|  %>
-							<div class="section-header"><h1 class="text-header-fs"><%= news.title %></h1></div>
+		<div class="row">
+			<%
+			#@currentdate = Date.today
+			@currentdate = Date.new(2016,4,1)
+			@currentgames = Game.new.getcurentgames(@currentdate) 
+			
+			@currentgames.each do |game| 
 
-							<div class="col-md-12 no-background">
-								<%= news.image_link_small.html_safe %>
-							</div>
-						<% end %>
-					<% end %>
+				@home_team = Team.find(game.home_team)
+				@visit_team = Team.find(game.visit_team)
+				%>
+
+				<div class="col-md-5 game-box">
+
+					<div class="row gameheader_status_<%= game.status.gsub(/\s+/, "") %>">
+						<div class="col-md-12">
+							<% if game.game_date < @currentdate %>
+								<%= game.game_date.strftime("%F %T") %>
+							<% else %>
+								<%= game.game_date.strftime("%A") %>
+							<% end %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2"><img class="img-logo" src="<%= @home_team.image.url %>"></div>
+						<div class="col-md-8"><%= @home_team.name %></div>
+						<div class="col-md-2 game-box-inner"><%= game.home_team_result %></div>
+					</div>
+					<div class="row game-box-separator">
+						<div class="col-md-2"><img class="img-logo" src="<%= @visit_team.image.url %>"></div>
+						<div class="col-md-8"><%= @visit_team.name %></div>
+						<div class="col-md-2 game-box-inner"><%= game.visit_team_result %></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-5 btn-primary">
+							<%= link_to 'Detalles', gamedetail_path(game) %>
+						</div>
+						<div class="col-md-6"></div>
+						
+					</div>
 				</div>
-			</div>
+				<div class="col-md-1 game-sepaator"></div>
+			<% end %>
+		</div>
 
-			<div class="row">
-				<div class="col-md-12">&nbsp;</div>
+		<div class="row">
+			<div class="countl-md-12">
+				<% if @generaltable %>
+					<div class="row" style="border-bottom:1px solid #EEEEEE;">
+						<div class="col-md-1 col-sm-1 section-subtitle section-subtitle-fs" align="center">&nbsp;</div>
+						<div class="col-md-1 col-sm-1 section-subtitle section-subtitle-fs" align="center">#</div>
+						<div class="col-md-1 col-sm-1 section-subtitle section-subtitle-fs">&nbsp;</div>
+						<div class="col-md-4 col-sm-4 section-subtitle section-subtitle-fs">Equipo</div>
+						<div class="col-md-1 col-sm-1 section-subtitle section-subtitle-fs" align="center">PJ</div>
+						<div class="col-md-1 col-sm-1 section-subtitle section-subtitle-fs" align="center">GF</div>
+						<div class="col-md-1 col-sm-1 section-subtitle section-subtitle-fs" align="center">GC</div>
+						<div class="col-md-1 col-sm-1 section-subtitle section-subtitle-fs" align="center">GD</div>
+						<div class="col-md-1 col-sm-1 section-subtitle section-subtitle-fs" align="center">Pts</div>
+					</div>
+
+					<% @x = 1 %>
+					<% @count = @generaltable.count %>
+
+					<% @generaltable.each do |table| %>
+						<% 
+						@team = Team.find(table.team_id)
+						@classifiedteams = Tournament.find(table.championship_id).classifiedteams
+						@eliminatedteams = Tournament.find(table.championship_id).eliminatedteams
+						%>
+						<div class="row" style="border-bottom:1px solid #EEEEEE;">
+							<div class="col-md-1 col-sm-1 section-subtitle-item" align="center">
+								<img class="img-logo" src="<%= @team.image.url %>">
+							</div>
+							<div class="col-md-1 col-sm-1 section-subtitle-item" align="center"><%= @x %></div>
+
+							<div class="col-md-1 col-sm-1 section-subtitle-items" align="center">
+
+								<% if @x <= @classifiedteams %>
+									<%= link_to (image_tag "table_in.jpg") %>
+								<% end %>
+
+
+								<% if @x >= @count - @eliminatedteams + 1 %>
+									<%= link_to (image_tag "table_out.jpg") %>
+								<% end %>								
+							</div>
+
+							<div class="col-md-4 col-sm-4 section-subtitle-item"><%= @team.name %></div>
+							<div class="col-md-1 col-sm-1 section-subtitle-item" align="center"><%= table.pg %></div>
+							<div class="col-md-1 col-sm-1 section-subtitle-item" align="center"><%= table.sg %></div>
+							<div class="col-md-1 col-sm-1 section-subtitle-item" align="center"><%= table.rg %></div>
+							<div class="col-md-1 col-sm-1 section-subtitle-item" align="center"><%= table.gd %></div>
+							<div class="col-md-1 col-sm-1 section-subtitle-item" align="center"><%= table.pts %></div>
+						</div> 	
+						<% @x = @x + 1 %>
+
+					<% end %>
+				<% end %>
 			</div>
-			<div class="row">
-				<div class="col-md-12">&nbsp;</div>
-			</div>			
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
+		</div>			
+
+		<% if @games %>
+
+			<%
+			# For every game
+			@games.each do |game| 
+				@home_team = Team.find(game.home_team)
+				@visit_team = Team.find(game.visit_team)
+				%>
+				<div class="row game_wrapper">
+						<div class="col-md-6 col-sm-6 gameheader_status_<%= game.status.gsub(/\s+/, "")%> section-subtitle-fs">&nbsp;<%= game.status%></div>
+						<div class="col-md-6 col-sm-6 gameheader_status_<%= game.status.gsub(/\s+/, "")%> section-subtitle-fs" align="right">
+							<%= game.game_date.strftime("%F - %H:%M") %>
+						</div>
+						
+						<div class="col-md-1 col-sm-1 section-subtitle-item" align="center">
+							<img class="img-logo" src="<%= @home_team.image.url %>">
+						</div>
+
+						<div class="col-md-4 col-sm-4 section-subtitle-item" align="center"><%= @home_team.name %></div>
+						<div class="col-md-2 col-sm-2 section-subtitle-item news-title" align="center"><%= game.home_team_result %> - <%= game.visit_team_result %></div>
+						<div class="col-md-4 col-sm-4 section-subtitle-item" align="center"><%= @visit_team.name %></div>
+
+						<div class="col-md-1 col-sm-1 section-subtitle-item" align="center">
+							<img class="img-logo" src="<%= @visit_team.image.url %>">
+						</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12 col-sm-12 game_separator">&nbsp;</div>
+					<div class="col-md-12 col-sm-12 game_separator">&nbsp;</div>
+				</div>
+
+
+			<% end %>
 		<% end %>
-
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-header"><h1 class="text-header-fs">Resultados</h1></div>
-
-				<% if @news_previous_games %>
-					<%
-					# For every news
-					@news_previous_games.each do |news|  %>
-						<div class="col-md-12">
-							<div class="news-title-small news-title-small-fs"><%= news.title %></div>
-							<%= news.image_link_small.html_safe %>
-						</div>
-
-						<div class="col-md-12">&nbsp;</div>
-						<div class="col-md-12">&nbsp;</div>
-
-					<% end %>
-				<% end %>
-			</div>
-		</div>
 		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-header"><h1 class="text-header-fs">Próximos Juegos</h1></div>
-
-				<% if @news_next_games %>
-					<%
-					# For every news
-					@news_next_games.each do |news|  %>
-						<div class="col-md-12">
-							<div class="news-title-small news-title-small-fs"><%= news.title %></div>
-							<%= news.image_link_small.html_safe %>
-						</div>
-
-						<div class="col-md-12">&nbsp;</div>
-						<div class="col-md-12">&nbsp;</div>
-
-					<% end %>
-				<% end %>
-			</div>
-		</div>
-
 		<div class="row">
 			<div class="col-md-12">&nbsp;</div>
 		</div>		

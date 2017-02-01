@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Championshiptables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Champ ID</th>
+      <th>Team ID</th>
+      <th>Pg</th>
+      <th>Wg</th>
+      <th>Tg</th>
+      <th>Lg</th>
+      <th>Sg</th>
+      <th>Rg</th>
+      <th>Gd</th>
+      <th>Pts</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @championshiptables.each do |championshiptable| %>
+      <tr>
+        <td><%= championshiptable.championship_id %></td>
+        <td><%= championshiptable.team_id %></td>
+        <td><%= championshiptable.pg %></td>
+        <td><%= championshiptable.wg %></td>
+        <td><%= championshiptable.tg %></td>
+        <td><%= championshiptable.lg %></td>
+        <td><%= championshiptable.sg %></td>
+        <td><%= championshiptable.rg %></td>
+        <td><%= championshiptable.gd %></td>
+        <td><%= championshiptable.pts %></td>
+        <td><%= link_to 'Show', championshiptable %></td>
+        <td><%= link_to 'Edit', edit_championshiptable_path(championshiptable) %></td>
+        <td><%= link_to 'Destroy', championshiptable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Championshiptable', new_championshiptable_path %>

@@ -1,0 +1,49 @@
+<%= form_for(@championshiptable) do |f| %>
+  <% if @championshiptable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@championshiptable.errors.count, "error") %> prohibited this championshiptable from being saved:</h2>
+
+      <ul>
+      <% @championshiptable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pg %><br>
+    <%= f.number_field :pg %>
+  </div>
+  <div class="field">
+    <%= f.label :wg %><br>
+    <%= f.number_field :wg %>
+  </div>
+  <div class="field">
+    <%= f.label :tg %><br>
+    <%= f.number_field :tg %>
+  </div>
+  <div class="field">
+    <%= f.label :lg %><br>
+    <%= f.number_field :lg %>
+  </div>
+  <div class="field">
+    <%= f.label :sg %><br>
+    <%= f.number_field :sg %>
+  </div>
+  <div class="field">
+    <%= f.label :rg %><br>
+    <%= f.number_field :rg %>
+  </div>
+  <div class="field">
+    <%= f.label :gd %><br>
+    <%= f.number_field :gd %>
+  </div>
+  <div class="field">
+    <%= f.label :pts %><br>
+    <%= f.number_field :pts %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
